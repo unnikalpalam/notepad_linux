@@ -24,12 +24,12 @@ class notepad:
         if not s.strip(): 
             self.new1_file()
         else:
-            result=messagebox.askyesnocancel("Create New File","Do you want to delete the details")
+            result=messagebox.askyesnocancel("Create New File","Continue, lost the details")
             if result==TRUE:
                 self.clear()
                 self.new1_file()
             else:
-                self.saveas_file()
+                pass
     def new1_file(self):
         h=filedialog.asksaveasfilename(initialdir="/home/ack/Documents/project/python_notes",title="Create New File",filetypes=(("Text File","*.txt"),("All Files","*.*")))
         f=open(h,mode="w")
@@ -163,7 +163,7 @@ class my_main:
     def __init__(self,rot):
         self.root=Toplevel(rot)
         self.root.title("Font configure")
-        self.root.geometry("350x320")
+        self.root.geometry("350x320+500+200")
         self.root.resizable(False, False)
         self.fam="Arial"
         self.siz='16'
@@ -225,9 +225,12 @@ class my_main:
     def select(self):
         arg=self.my_text.get(1.0,END)
         app.set_font(arg)
+        #app.fg()
 
     def exits(self):
-        exit()
+        self.root.destroy()
+        #exit()
+        #quit() close complete program
     
 
  
